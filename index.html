@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherSphere - Global Weather Forecast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="developer-info">
+        <div class="developer-btn">Developer</div>
+        <div class="developer-details">
+          <img src="images/sahil.jpg" alt="Sahil Lal" class="developer-img">
+            <div class="developer-text">
+                <h3>Sahil Lal</h3>
+                <p>Engineering Student & Full Stack Developer</p>
+                <p>Creator of WeatherSphere using expertise in HTML, CSS, JavaScript and Open-Meteo API</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="weather-app">
+        <div class="background-animation"></div>
+        <div class="particles"></div>
+        
+        <header class="app-header">
+            <h1>WeatherSphere</h1>
+            <p>Global weather at your fingertips</p>
+        </header>
+
+        <main class="app-content">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="city-input" placeholder="Search for a city..." autocomplete="off">
+                    <button id="search-btn"><i class="wi wi-day-sunny"></i></button>
+                    <button id="location-btn"><i class="wi wi-direction-right"></i></button>
+                </div>
+                <div class="search-suggestions" id="search-suggestions"></div>
+                <div class="unit-toggle">
+                    <button class="active" id="celsius-btn">°C</button>
+                    <button id="fahrenheit-btn">°F</button>
+                </div>
+            </div>
+
+            <div class="weather-display">
+                <div class="weather-card">
+                    <div class="weather-main">
+                        <div class="weather-icon-container">
+                            <i id="weather-icon" class="wi wi-day-sunny"></i>
+                        </div>
+                        <div class="temperature-container">
+                            <div class="current-temp" id="current-temp">--</div>
+                            <div class="weather-description" id="weather-description">Search for a city</div>
+                        </div>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="wi wi-humidity"></i>
+                            <span id="humidity">--%</span>
+                            <p>Humidity</p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="wi wi-strong-wind"></i>
+                            <span id="wind">-- km/h</span>
+                            <p>Wind</p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="wi wi-thermometer"></i>
+                            <span id="feels-like">--°</span>
+                            <p>Feels Like</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secondary-info">
+                    <div class="info-card">
+                        <h3><i class="wi wi-time-3"></i> Local Time</h3>
+                        <p id="local-time">--:-- --</p>
+                        <p id="local-date">--- --, ----</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="wi wi-sunrise"></i> Sunrise/Sunset</h3>
+                        <p><span id="sunrise">--:--</span> / <span id="sunset">--:--</span></p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="wi wi-barometer"></i> Pressure</h3>
+                        <p id="pressure">--- hPa</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+    <p>© 2025 WeatherSphere - Global weather at your fingertips. Developed by Sahil Lal. All rights reserved.</p>
+    <p id="last-updated">Last updated: --</p>
+</footer>
+
+    <div class="loading-overlay">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">Fetching weather data...</div>
+        </div>
+    </div>
+
+    <div class="error-modal">
+        <div class="modal-content">
+            <h3>Error</h3>
+            <p id="error-message">City not found. Please try again.</p>
+            <button id="close-error-btn">OK</button>
+        </div>
+    </div>
+
+    <audio id="weather-sound" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
